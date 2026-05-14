@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>9BOX — Recrutement Commercial & Marketing Talents</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary-navy: #2d3390;
+            --secondary-navy: #1a2575;
+            --accent-teal: #1a6b8a;
+            --accent-bright: #3a7fc1;
+            --accent-multicolor: #e05a2b;
+            --light-gray: #f5f6fa;
+            --medium-gray: #e4e6f0;
+            --dark-gray: #4a4a5a;
+            --text-dark: #1e2340;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            box-shadow: 0 2px 12px rgba(45,51,144,0.12);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 0.6rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-img {
+            height: 58px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover { color: var(--accent-teal); }
+
+        .hire-btn-nav {
+            background: var(--accent-teal);
+            color: white !important;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            margin-left: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .hire-btn-nav:hover {
+            background: var(--primary-navy);
+            transform: translateY(-2px);
+        }
+
+        /* Hero */
+        .hero {
+            margin-top: 74px;
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+            color: var(--white);
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 50%; height: 100%;
+            background: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            opacity: 0.12;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.5rem;
+            color: #6ec6e6;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 3px;
+            transition: all 0.3s;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-teal);
+            color: var(--white);
+            border: 2px solid var(--accent-teal);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--accent-teal);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-navy);
+        }
+
+        .hero-image {
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Stats */
+        .stats-bar {
+            background: var(--accent-teal);
+            padding: 2.5rem 0;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Sections */
+        section { padding: 5rem 2rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-navy), var(--accent-teal));
+        }
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+        }
+
+        #approche { background: var(--light-gray); }
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .approach-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 5px 20px rgba(45,51,144,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--accent-teal);
+        }
+        .approach-card:hover { transform: translateY(-10px); }
+        .approach-card i { font-size: 3rem; color: var(--accent-teal); margin-bottom: 1.5rem; }
+        .approach-card h3 { font-size: 1.3rem; color: var(--primary-navy); margin-bottom: 1rem; }
+
+        .process-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .process-image {
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(45,51,144,0.15);
+        }
+        .process-image img { width: 100%; height: auto; display: block; }
+        .process-steps { display: flex; flex-direction: column; gap: 1.5rem; }
+        .process-step {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            padding: 1.5rem;
+            background: var(--light-gray);
+            border-radius: 5px;
+            border-left: 5px solid var(--accent-teal);
+            transition: all 0.3s;
+        }
+        .step-number {
+            background: var(--primary-navy);
+            color: #6ec6e6;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        .step-content h3 { color: var(--primary-navy); margin-bottom: 0.5rem; }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        .why-card {
+            background: var(--white);
+            padding: 3rem 2.5rem;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(45,51,144,0.10);
+            transition: all 0.3s;
+        }
+        .why-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.5rem;
+            color: #6ec6e6;
+        }
+
+        .guarantee-section {
+            background: var(--primary-navy);
+            color: var(--white);
+            padding: 4rem;
+            border-radius: 5px;
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .guarantee-content h3 { font-size: 2.2rem; margin-bottom: 1.5rem; color: #6ec6e6; }
+        .guarantee-badge {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 5px;
+        }
+
+        .sectors-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .sector-item {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        .sector-item i { font-size: 2.5rem; color: var(--accent-teal); margin-bottom: 1rem; }
+
+        .team-section {
+            background: var(--light-gray);
+            padding: 5rem 2rem;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .team-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(45,51,144,0.12);
+        }
+        .team-header {
+            background: linear-gradient(135deg, var(--primary-navy), var(--secondary-navy));
+            padding: 2rem;
+            text-align: center;
+            color: var(--white);
+        }
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--accent-teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 3rem;
+            border: 4px solid var(--white);
+        }
+        .team-body { padding: 2rem; }
+        .team-highlights li {
+            list-style: none;
+            padding: 0.3rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .team-highlights li::before { content: '✓'; color: var(--accent-teal); font-weight: bold; }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            max-width: 550px;
+            width: 90%;
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: fadeInUp 0.3s;
+        }
+        .modal-content h3 {
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        .modal-content input, .modal-content textarea, .modal-content select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 16px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            font-family: inherit;
+        }
+        .modal-content button {
+            background: var(--accent-teal);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--dark-gray);
+        }
+
+        /* Info request form section */
+        .info-form-section {
+            background: white;
+            border-top: 1px solid var(--medium-gray);
+        }
+        .contact-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 20px;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-family: inherit;
+        }
+        .submit-btn {
+            background: var(--primary-navy);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #0e1640;
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+        @media (max-width: 1024px) {
+            .hero-container, .process-container, .guarantee-section { grid-template-columns: 1fr; }
+            .approach-grid, .why-grid { grid-template-columns: repeat(2, 1fr); }
+            .sectors-grid { grid-template-columns: repeat(3, 1fr); }
+            .team-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hire-btn-nav { display: inline-block; margin-left: auto; }
+            .nav-container { justify-content: space-between; }
+            .approach-grid, .why-grid, .sectors-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2rem; }
+        }
+        html { scroll-behavior: smooth; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#" aria-label="9BOX Home">
+                <svg class="logo-img" viewBox="0 0 320 110" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(224,4)">
+                        <rect x="10" y="0"  width="7" height="7" rx="1.5" fill="#3d3d8f" opacity="0.55"/>
+                        <rect x="20" y="0"  width="7" height="7" rx="1.5" fill="#6b4fa0" opacity="0.6"/>
+                        <rect x="30" y="0"  width="7" height="7" rx="1.5" fill="#8b3090" opacity="0.55"/>
+                        <rect x="4"  y="11" width="8" height="8" rx="1.5" fill="#2e7abf" opacity="0.65"/>
+                        <rect x="16" y="11" width="9" height="9" rx="1.5" fill="#3d3d8f" opacity="0.7"/>
+                        <rect x="29" y="11" width="9" height="9" rx="1.5" fill="#7b3598" opacity="0.6"/>
+                        <rect x="0"  y="23" width="9" height="9" rx="1.5" fill="#29a886" opacity="0.65"/>
+                        <rect x="14" y="23" width="10" height="10" rx="1.5" fill="#2e7abf" opacity="0.7"/>
+                        <rect x="28" y="22" width="12" height="12" rx="2" fill="#3d3d8f" opacity="0.85"/>
+                        <rect x="4"  y="37" width="9" height="9" rx="1.5" fill="#3aac7a" opacity="0.6"/>
+                        <rect x="17" y="36" width="11" height="11" rx="2"  fill="#45a8d0" opacity="0.7"/>
+                        <rect x="32" y="35" width="15" height="15" rx="2.5" fill="#4060c8" opacity="0.9"/>
+                        <rect x="10" y="53" width="9" height="9" rx="1.5" fill="#4ab87a" opacity="0.55"/>
+                        <rect x="23" y="52" width="11" height="11" rx="2" fill="#3ab0c8" opacity="0.65"/>
+                        <rect x="38" y="51" width="13" height="13" rx="2" fill="#e07a20" opacity="0.8"/>
+                    </g>
+                    <text x="0" y="74" font-family="'Source Sans Pro', 'Arial Black', sans-serif" font-size="82" font-weight="800" fill="#2d3390" letter-spacing="-2">9 BOX</text>
+                    <line x1="0" y1="80" x2="220" y2="80" stroke="#b0b8d8" stroke-width="1.2"/>
+                    <text x="2" y="102" font-family="'Source Sans Pro', Arial, sans-serif" font-size="28" font-weight="700" fill="#1a6b8a" letter-spacing="3">HIRE SMART !</text>
+                </svg>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#approche">Notre Approche</a></li>
+                <li><a href="#pourquoi">Pourquoi Nous</a></li>
+                <li><a href="#secteurs">Secteurs</a></li>
+                <li><a href="#contact">Nous Contacter</a></li>
+                <li><a href="#" id="openModalBtnNav" class="hire-btn-nav"><i class="fas fa-briefcase"></i> Besoin de talents ?</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section (FMCG removed) -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Spécialiste Recrutement commercial et Marketing Talents</h1>
+                <p class="tagline">Recrutez Malin. Gagnez le Marché.</p>
+                <p>9 BOX est votre partenaire expert en recrutement des talents Commerciaux et Marketing dans les secteurs de la vente et du développement commercial. Nous identifions, évaluons et plaçons les profils d'exception qui font la différence.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Nous Recruter</a>
+                    <a href="#" id="openModalBtnHero" class="btn btn-secondary">Déposer une offre</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Executive Recruitment">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar (FMCG removed) -->
+    <div class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item"><h3>100%</h3><p>Spécialisation Commercial & Marketing</p></div>
+            <div class="stat-item"><h3>IA</h3><p>Outils Évaluation</p></div>
+            <div class="stat-item"><h3>360°</h3><p>Accompagnement</p></div>
+            <div class="stat-item"><h3>Garantie</h3><p>Résultat</p></div>
+        </div>
+    </div>
+
+    <!-- Approach section (FMCG text changed) -->
+    <section id="approche">
+        <div class="container">
+            <div class="section-header"><h2>Notre Approche</h2><p>Une expertise sectorielle combinée à des outils d'évaluation avancés pour des recrutements réussis</p></div>
+            <div class="approach-grid">
+                <div class="approach-card"><i class="fas fa-bullseye"></i><h3>Expertise Sectorielle Commercial & Marketing</h3><p>Nos consultants maîtrisent les métiers commerciaux et marketing avec une expérience terrain concrète</p></div>
+                <div class="approach-card"><i class="fas fa-robot"></i><h3>Outils d'Évaluation Avancés</h3><p>Tests à base d'IA et techniques de gaming pour une évaluation objective et approfondie</p></div>
+                <div class="approach-card"><i class="fas fa-handshake"></i><h3>Partenaire de Bout en Bout</h3><p>De la définition du besoin jusqu'à l'intégration des collaborateurs</p></div>
+                <div class="approach-card"><i class="fas fa-shield-alt"></i><h3>Garantie Résultat</h3><p>Remplacement sans frais si période d'essai non concluante</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process section -->
+    <section id="process"><div class="container"><div class="section-header"><h2>Notre Processus</h2><p>Une Approche Structurée en 5 Étapes</p></div>
+    <div class="process-container"><div class="process-image"><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Meeting"></div>
+    <div class="process-steps"><div class="process-step"><div class="step-number">01</div><div class="step-content"><h3>Compréhension de votre Besoin</h3><p>Une écoute approfondie pour cerner vos enjeux, culture d'entreprise et profil idéal.</p></div></div>
+    <div class="process-step"><div class="step-number">02</div><div class="step-content"><h3>Recherche des Profils d'Exception</h3><p>Multidiffusion et approche directe pour les profils rares.</p></div></div>
+    <div class="process-step"><div class="step-number">03</div><div class="step-content"><h3>Présélection des Candidats</h3><p>Shortlist qualifiée avec rapports d'évaluation.</p></div></div>
+    <div class="process-step"><div class="step-number">04</div><div class="step-content"><h3>Préparation de vos Entretiens</h3><p>Accompagnement dans l'exécution de votre processus de sélection.</p></div></div>
+    <div class="process-step"><div class="step-number">05</div><div class="step-content"><h3>Tests & Contrôle de Références</h3><p>Tests psychométriques, outils IA et gaming, contrôle rigoureux.</p></div></div>
+    </div></div></div></section>
+
+    <!-- Why Choose Us -->
+    <section id="pourquoi"><div class="container"><div class="section-header"><h2>Pourquoi Nous Choisir</h2><p>La Double Expertise qui Fait la Différence</p></div>
+    <div class="why-grid"><div class="why-card"><div class="why-icon"><i class="fas fa-bullseye"></i></div><h3>Expertise Commercial & Marketing</h3><p>Nos consultants maîtrisent les métiers commerciaux et marketing avec une expérience terrain concrète.</p></div>
+    <div class="why-card"><div class="why-icon"><i class="fas fa-robot"></i></div><h3>Outils d'Évaluation Avancés</h3><p>Tests IA et techniques de gaming pour évaluation approfondie des soft skills.</p></div>
+    <div class="why-card"><div class="why-icon"><i class="fas fa-handshake"></i></div><h3>Partenaire de Bout en Bout</h3><p>De la définition du besoin à l'intégration dans vos départements Commercial & Marketing.</p></div></div>
+
+    <div class="guarantee-section"><div class="guarantee-content"><h3>Garantie Résultat</h3><p>Nous engageons notre responsabilité sur le long terme.</p><div class="guarantee-badge"><i class="fas fa-shield-alt"></i><div><h4 style="color:#6ec6e6;">Garantie de Remplacement</h4><p>Si période d'essai non concluante, nous remplaçons sans frais supplémentaires.</p></div></div></div>
+    <div class="guarantee-image"><img src="https://images.unsplash.com/photo-1556761175-4b748c6c7d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Partnership"></div></div></div></section>
+
+    <!-- Sectors section (FMCG removed) -->
+    <section id="secteurs"><div class="container"><div class="section-header"><h2>Nos Domaines d'Intervention</h2><p>Commerciaux & Marketing – Talents de la vente</p></div>
+    <div class="sectors-grid"><div class="sector-item"><i class="fas fa-chart-line"></i><h4>Direction Commerciale</h4></div><div class="sector-item"><i class="fas fa-users"></i><h4>Key Account Manager</h4></div><div class="sector-item"><i class="fas fa-map-marked-alt"></i><h4>Chef de Secteur</h4></div><div class="sector-item"><i class="fas fa-shopping-cart"></i><h4>Trade Marketing</h4></div><div class="sector-item"><i class="fas fa-box"></i><h4>Chef de Produit</h4></div><div class="sector-item"><i class="fas fa-th"></i><h4>Category Manager</h4></div><div class="sector-item"><i class="fas fa-bullhorn"></i><h4>Directeur Marketing</h4></div><div class="sector-item"><i class="fas fa-tag"></i><h4>Brand Manager</h4></div><div class="sector-item"><i class="fas fa-user-tie"></i><h4>Force de Vente</h4></div><div class="sector-item"><i class="fas fa-briefcase"></i><h4>Business Developer</h4></div><div class="sector-item"><i class="fas fa-coins"></i><h4>Revenue Management</h4></div><div class="sector-item"><i class="fas fa-store"></i><h4>Sales Manager</h4></div></div></div></section>
+
+    <!-- Team section (FMCG wording removed) -->
+    <section class="team-section"><div class="container"><div class="section-header"><h2>Nos Consultants</h2><p>Des experts à votre écoute</p></div>
+    <div class="team-grid"><div class="team-card"><div class="team-header"><div class="team-avatar"><i class="fas fa-user-tie"></i></div><h3>Eyad SOBH MANSOUR</h3><p class="title">Managing Partner</p><p class="experience">30+ ans d'expérience en Agroalimentaire</p></div><div class="team-body"><p class="team-bio">Leader chevronné des marchés exigeants : Maroc, Soudan, Jordanie. Managing Partner chez REDMAC Consulting.</p><ul class="team-highlights"><li>General Manager chez MATHEI</li><li>Dirigeant chez Savola Foods, Cadbury Adams</li><li>Président Commission Commerce Extérieur FENAGRI</li></ul><div class="team-contact"><i class="fas fa-phone"></i><a href="tel:+212661257250">+212 661 25 72 50</a></div></div></div>
+    <div class="team-card"><div class="team-header"><div class="team-avatar"><i class="fas fa-user-tie"></i></div><h3>Hassan SEFFAR</h3><p class="title">Senior HR Consultant</p><p class="experience">20+ ans en RH Multinationales Commerciales & Marketing</p></div><div class="team-body"><p class="team-bio">Cadre supérieur RH avec expertise chez Nestlé Maroc et Moyen-Orient.</p><ul class="team-highlights"><li>Directeur RH Nestlé Maroc</li><li>Head of HR expatrié Iran</li><li>Spécialiste Développement organisationnel, Gestion des talents</li></ul><div class="team-contact"><i class="fas fa-phone"></i><a href="tel:+212608900900">+212 608 90 09 00</a></div></div></div></div></div></section>
+
+    <!-- Contact Section -->
+    <section id="contact"><div class="contact-container" style="max-width:1000px;margin:0 auto;text-align:center;background: linear-gradient(135deg, var(--primary-navy) 0%, var(--accent-teal) 100%);color:white;padding:4rem 2rem;border-radius:20px;"><h2 style="font-size:2.8rem;">Contactez-Nous</h2><p>Vous Recrutez ? Parlons-en.</p><a href="mailto:contact@9box.ma" class="btn btn-primary" style="background:white;color:var(--primary-navy);margin:1rem 0;">contact@9box.ma</a><div class="contact-info" style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:1.5rem;"><div class="contact-item"><i class="fas fa-phone"></i><span>+212 661 25 72 50</span></div><div class="contact-item"><i class="fas fa-phone"></i><span>+212 608 90 09 00</span></div></div></div></section>
+
+    <!-- NEW: Info request form (end of page) -->
+    <section class="info-form-section" style="background:var(--light-gray);">
+        <div class="container">
+            <div class="section-header"><h2>Demande d'information</h2><p>Une question, un besoin spécifique ? Écrivez-nous</p></div>
+            <div class="contact-form-container">
+                <form id="infoRequestForm">
+                    <div class="form-group"><input type="text" id="infoName" placeholder="Votre nom complet *" required></div>
+                    <div class="form-group"><input type="email" id="infoEmail" placeholder="Votre email *" required></div>
+                    <div class="form-group"><input type="tel" id="infoPhone" placeholder="Téléphone"></div>
+                    <div class="form-group"><textarea id="infoMessage" rows="4" placeholder="Détails de votre demande (type de profil, besoins, etc.) *" required></textarea></div>
+                    <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Envoyer la demande</button>
+                </form>
+                <p id="infoFormFeedback" style="margin-top:1rem;font-size:0.9rem;"></p>
+            </div>
+        </div>
+    </section>
+
+    <footer><p>&copy; 2025 9BOX — Spécialiste Recrutement  Commercial & Marketing Talents Maroc</p></footer>
+
+    <!-- MODAL for Client Job Offer / Need talents -->
+    <div id="jobModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3><i class="fas fa-bullhorn"></i> Déposez votre besoin</h3>
+            <p>Vous cherchez des talents commerciaux ou marketing ? Remplissez ce formulaire, nous étudions votre demande.</p>
+            <form id="jobOfferForm">
+                <input type="text" id="clientName" placeholder="Nom complet *" required>
+                <input type="email" id="clientEmail" placeholder="Email *" required>
+                <input type="tel" id="clientPhone" placeholder="Téléphone">
+                <input type="text" id="jobTitle" placeholder="Intitulé du poste *" required>
+                <textarea id="jobDescription" rows="4" placeholder="Description de la mission / profil recherché (compétences, expérience, etc.) *" required></textarea>
+                <textarea id="extraDetails" rows="3" placeholder="Détails supplémentaires (localisation, type de contrat, salaire indicatif...)"></textarea>
+                <button type="submit">Envoyer la demande de recrutement</button>
+            </form>
+            <p id="modalFeedback" style="margin-top:12px;font-size:0.85rem;"></p>
+        </div>
+    </div>
+
+    <script>
+        // MODAL logic
+        const modal = document.getElementById('jobModal');
+        const openModalBtns = document.querySelectorAll('#openModalBtnNav, #openModalBtnHero');
+        const closeModal = document.querySelector('.close-modal');
+
+        function openModal() { modal.style.display = 'flex'; }
+        function closeModalFunc() { modal.style.display = 'none'; document.getElementById('modalFeedback').innerHTML = ''; }
+
+        openModalBtns.forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); openModal(); }));
+        closeModal.addEventListener('click', closeModalFunc);
+        window.addEventListener('click', (e) => { if (e.target === modal) closeModalFunc(); });
+
+        // Helper: send via mailto (opens email client with data)
+        function sendEmailViaMailto(recipient, subject, bodyText) {
+            const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
+            window.location.href = mailtoLink;
+            return true;
+        }
+
+        // Job offer form (client demande)
+        const jobForm = document.getElementById('jobOfferForm');
+        const modalFeedback = document.getElementById('modalFeedback');
+        jobForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('clientName').value.trim();
+            const email = document.getElementById('clientEmail').value.trim();
+            const phone = document.getElementById('clientPhone').value.trim();
+            const jobTitle = document.getElementById('jobTitle').value.trim();
+            const jobDesc = document.getElementById('jobDescription').value.trim();
+            const extra = document.getElementById('extraDetails').value.trim();
+
+            if(!name || !email || !jobTitle || !jobDesc) {
+                modalFeedback.innerHTML = '<span style="color:red;">Veuillez remplir tous les champs obligatoires (*).</span>';
+                return;
+            }
+            const subject = `Demande de recrutement : ${jobTitle}`;
+            let body = `--- DEMANDE CLIENT (BESOIN DE TALENTS) ---\n`;
+            body += `Nom complet : ${name}\n`;
+            body += `Email : ${email}\n`;
+            body += `Téléphone : ${phone || 'Non renseigné'}\n`;
+            body += `\n--- Détail du poste ---\n`;
+            body += `Intitulé : ${jobTitle}\n`;
+            body += `Description du poste :\n${jobDesc}\n`;
+            if(extra) body += `Informations supplémentaires :\n${extra}\n`;
+            body += `\n---\nMerci de traiter cette demande.`;
+
+            sendEmailViaMailto('contact@9box.ma', subject, body);
+            modalFeedback.innerHTML = '<span style="color:green;">✓ Demande envoyée ! Votre client email va s\'ouvrir, veuillez confirmer l\'envoi.</span>';
+            setTimeout(() => { closeModalFunc(); jobForm.reset(); modalFeedback.innerHTML = ''; }, 2000);
+        });
+
+        // Info request form at the bottom (general info)
+        const infoForm = document.getElementById('infoRequestForm');
+        const infoFeedback = document.getElementById('infoFormFeedback');
+        infoForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('infoName').value.trim();
+            const email = document.getElementById('infoEmail').value.trim();
+            const phone = document.getElementById('infoPhone').value.trim();
+            const message = document.getElementById('infoMessage').value.trim();
+            if(!name || !email || !message) {
+                infoFeedback.innerHTML = '<span style="color:red;">Merci de remplir les champs obligatoires.</span>';
+                return;
+            }
+            const subject = "Demande d'information - 9BOX Recrutement";
+            let body = `Nom : ${name}\nEmail : ${email}\nTéléphone : ${phone || 'Non fourni'}\n\nMessage :\n${message}\n\n---\nMerci de me contacter.`;
+            sendEmailViaMailto('contact@9box.ma', subject, body);
+            infoFeedback.innerHTML = '<span style="color:green;">✓ Demande transmise ! Votre client email va s\'ouvrir, veuillez appuyer sur Envoyer.</span>';
+            infoForm.reset();
+            setTimeout(() => infoFeedback.innerHTML = '', 4000);
+        });
+    </script>
+</body>
+</html>
